@@ -1,6 +1,6 @@
 # 0002. Evitar librerías de UI de React
 
-- **Estado:** Aceptado
+- **Estado:** Sustituido por [0003](0003-componentes-ui-sin-react-ni-shadcn.md)
 - **Fecha:** 2026-08-25
 
 ## Contexto
@@ -52,6 +52,12 @@ embuten su runtime y su CSS). Sustituciones:
   siguen disponibles vía shadcn cuando se necesiten, como islas puntuales.
 - Requiere integración de React y Tailwind en el proyecto (prerrequisitos de
   shadcn), aunque la web siga siendo mayoritariamente `.astro`.
-- Pendiente de ejecutar la instalación: `astro add tailwind react`, alias
-  `@/*` en `tsconfig.json` e `init` del CLI de shadcn. Se documentará aquí
-  cuando se haga.
+- Instalación ejecutada el 2026-08-30:
+  - `astro add tailwind react`: Tailwind CSS v4 vía `@tailwindcss/vite` y
+    React 19 con la integración `@astrojs/react`.
+  - Alias `@/*` → `./src/*` en `compilerOptions.paths` de `tsconfig.json`
+    (Astro lo aplica también a Vite).
+  - `shadcn init` con preset Nova y primitivas Radix: generó
+    `components.json`, `src/lib/utils.ts` y `src/components/ui/button.tsx`.
+    El CSS global en `src/styles/global.css` quedó importado desde
+    `src/layouts/Layout.astro`.

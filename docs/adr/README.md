@@ -35,5 +35,6 @@ Qué implica: ventajas, costes y cosas que habrá que hacer distinto.
 | ADR | Título | Estado |
 | --- | ------ | ------ |
 | [0001](0001-usar-astro-como-framework.md) | Usar Astro como framework del portfolio | Aceptado |
-| [0002](0002-sin-librerias-de-ui-react.md) | Evitar librerías de UI de React (antd, react-vertical-timeline-component, react-scroll) | Aceptado |
-| [0003](0003-layout-con-head-centralizado.md) | Layout único con head centralizado | Aceptado |
+| [0002](0002-sin-librerias-de-ui-react.md) | Evitar librerías de UI de React (antd, react-vertical-timeline-component, react-scroll) | Sustituido por [0003](0003-componentes-ui-sin-react-ni-shadcn.md) |
+| [0003](0003-componentes-ui-sin-react-ni-shadcn.md) | Componentes UI con HTML/CSS y vanilla JS (sin React ni shadcn) | Aceptado |
+| [0004](0004-navegacion-unica-pagina-scroll-anclas.md) | Navegación en una única página con scroll por anclas | Aceptado |
