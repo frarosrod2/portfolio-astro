@@ -1,0 +1,27 @@
+---
+import type { ImageMetadata } from "astro";
+import Image from "astro/components/Image.astro";
+
+interface Props {
+    img: ImageMetadata;
+    link?: string;
+    alt: string;
+    width?: number;
+    isNewTab?: boolean;
+}
+
+const { img, link, alt, width, isNewTab } = Astro.props;
+---
+
+{
+    link ? (
+        <a
+            href={link}
+            {...(isNewTab && { target: "_blank", rel: "noopener noreferrer" })}
+        >
+            <Image src={img} alt={alt} width={width} />
+        </a>
+    ) : (
+        <Image src={img} alt={alt} width={width} />
+    )
+}

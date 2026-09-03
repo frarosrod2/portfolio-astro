@@ -1,0 +1,117 @@
+---
+import githubLogo from "../assets/images/github.png";
+import gmailLogo from "../assets/images/gmail.png";
+import linkedin from "../assets/images/linkedin.png";
+import Logo from "./Logo.astro";
+
+const socialNetworks = [
+  {
+    name: "Linkedin",
+    link: "https://www.linkedin.com/in/francisco-javier-rosa-rodr%C3%ADguez-459119200/?originalSubdomain=es",
+    icon: linkedin,
+    isNewTab: true,
+  },
+  {
+    name: "Gmail",
+    link: "mailto:pacorosa99@gmail.com",
+    icon: gmailLogo,
+    isNewTab: false,
+  },
+  {
+    name: "Github",
+    link: "https://github.com/frarosrod2",
+    icon: githubLogo,
+    isNewTab: true,
+  },
+];
+
+const menuItems = ["About", "Timeline", "Projects"];
+---
+
+<nav class="navbar-container">
+  <ul class="menu">
+    {
+      menuItems.map((item) => (
+        <li>
+          <a href={`#${item.toLowerCase()}`} class="menu-link">
+            {item}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+  <div class="logos-container">
+    {
+      socialNetworks.map(({ name, link, icon, isNewTab }) => (
+        <Logo link={link} img={icon} alt={name} isNewTab={isNewTab} width={30} />
+      ))
+    }
+  </div>
+</nav>
+
+<style>
+  .navbar-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+    width: 83%; /* w-10/12 (base, móvil) */
+    margin: 0 auto;
+  }
+
+  @media (min-width: 640px) {
+    .navbar-container {
+      width: 75%; /* sm:w-9/12 */
+    }
+  }
+
+  @media (min-width: 768px) {
+    .navbar-container {
+      width: 91%; /* md:w-11/12 */
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .navbar-container {
+      width: 83%; /* lg:w-10/12 */
+    }
+  }
+
+  .menu {
+    display: none;
+    list-style: none;
+    gap: 5rem; /* gap-20 */
+    margin: 0;
+    padding: 0;
+    font-family: "Golos Text", "Roboto", cursive;
+  }
+
+  @media (min-width: 768px) {
+    .menu {
+      display: flex;
+    }
+  }
+
+  .menu-link {
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .logos-container {
+    display: flex;
+    margin-left: auto;
+    gap: 2rem;
+    flex-wrap: wrap;
+    align-content: center;
+    padding-left: 1rem; /* px-4 */
+    padding-right: 1rem;
+  }
+
+  @media (min-width: 768px) {
+    .logos-container {
+      padding-left: 2rem; /* md:px-8 */
+      padding-right: 2rem;
+    }
+  }
+</style>
