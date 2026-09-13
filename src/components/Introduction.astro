@@ -24,8 +24,8 @@ const techSkills = [
   <div class="intro-wrapper">
     <div class="intro-content">
       <div class="headings">
-        <h2 class="name">Francisco Javier Rosa</h2>
-        <h3 class="role">Full Stack Developer</h3>
+        <h1 class="name">Francisco Javier Rosa</h1>
+        <p class="role">Full Stack Developer</p>
       </div>
       <div class="primary-text mt-10">
         Hi, my name is Francisco Javier Rosa, a young Full Stack Software
@@ -44,7 +44,13 @@ const techSkills = [
       </div>
     </div>
     <div class="developer-wrapper">
-      <Image src={developer} alt="developer-img" class="developer-img" width={520} />
+      <Image
+        src={developer}
+        alt="Developer illustration"
+        class="developer-img"
+        width={520}
+        loading="eager"
+      />
     </div>
   </div>
 </section>
@@ -113,7 +119,7 @@ const techSkills = [
     font-size: clamp(20px, 4vw, 32px);
     color: #00ff7c;
     line-height: 0.7;
-    margin-top: 15px;
+    margin: 15px 0 0;
   }
 
   .primary-text {
