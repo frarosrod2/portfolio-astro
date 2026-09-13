@@ -17,11 +17,19 @@ const { img, link, alt, width, isNewTab } = Astro.props;
     link ? (
         <a
             href={link}
-            {...(isNewTab && { target: "_blank", rel: "noopener noreferrer" })}
+            {...(isNewTab
+                ? { target: "_blank", rel: "noopener noreferrer" }
+                : {})}
         >
-            <Image src={img} alt={alt} width={width} />
+            <Image class="logo-img" src={img} alt={alt} width={width} />
         </a>
     ) : (
-        <Image src={img} alt={alt} width={width} />
+        <Image class="logo-img" src={img} alt={alt} width={width} />
     )
 }
+
+<style>
+    .logo-img {
+        object-fit: contain;
+    }
+</style>

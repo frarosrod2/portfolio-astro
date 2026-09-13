@@ -1,0 +1,263 @@
+---
+import Image from "astro/components/Image.astro";
+import berger from "../assets/images/berger.png";
+import digital55 from "../assets/images/digital55.png";
+import minsait from "../assets/images/minsait.png";
+import viewnext from "../assets/images/view.png";
+
+const jobs = [
+  {
+    date: "February 2021 - May 2021",
+    alt: "berger",
+    logo: berger,
+    iconBg: "#ffffff",
+    role: "Backend Developer Trainee",
+    company: "Berger Levrault",
+    points: ["Backend Development using Spring and JSF."],
+  },
+  {
+    date: "September 2021 - January 2023",
+    alt: "viewnext",
+    logo: viewnext,
+    iconBg: "#0b1b33",
+    role: "FullStack Developer",
+    company: "Viewnext",
+    points: [
+      "Developed full-stack web applications using Angular, Express, and PostgreSQL, including a specialized platform for the naval industry.",
+      "Architected and documented REST APIs using Express.js and TypeORM to manage core business logic and data operations.",
+      "Maintained and expanded a React project for an energy company using Redux, Axios, Jest and Antd.",
+    ],
+  },
+  {
+    date: "January 2023 - July 2024",
+    alt: "digital55",
+    logo: digital55,
+    iconBg: "#ffffff",
+    role: "FullStack Developer",
+    company: "Digital55",
+    points: [
+      "Developed a large-scale hospital management system using Angular (v13-15) and Express, collaborating with healthcare professionals to ensure industry-specific requirements.",
+      "Applied advanced RxJs, NgRx, and Reactive Forms to build reusable components throughout the application.",
+      "Optimized backend architecture by designing controllers and services, leveraging TypeORM transactions and SQL entity modeling for high performance.",
+    ],
+  },
+  {
+    date: "July 2024 - current",
+    alt: "minsait",
+    logo: minsait,
+    iconBg: "#0b1b33",
+    role: "Software Developer",
+    company: "Minsait",
+    points: [
+      "Migrated, optimized, and documented shared Angular libraries (Business, API, Security, Utils) to v18/20, reaching 10,000+ internal downloads within a banking company.",
+      "Developed the frontend for an AI-powered internal chat used by 10+ teams, with prompt templates, file attachments, Google Drive integration, conversation sharing and resumption.",
+      "Led Playwright adoption and setup, implementing custom fixtures to handle E2E contexts using IndexedDB browser-based storage.",
+      "Built and led adoption of an internal CLI for installing and configuring the Claude development environment (glab, gcloud, OpenSpec), including plugin configuration, telemetry, and work profile management -- 100+ active users.",
+      "Designed and implemented a CLI to sync GitLab with OpenSpec (SDD), automatically converting specs into GitLab issues.",
+      "Built custom Claude Code hooks to reduce command verbosity, enable secure intranet access and automate SDD sync on session end.",
+    ],
+  },
+];
+---
+
+<section id="timeline" class="timeline-section">
+  <h2 class="section-title">02. Timeline</h2>
+  <ol class="timeline mt-12">
+    {
+      jobs.map((job) => (
+        <li class="timeline-item">
+          <div class="timeline-icon" style={`background: ${job.iconBg}`}>
+            <Image src={job.logo} alt={job.alt} width={40} class="icon-img" />
+          </div>
+          <div class="timeline-content">
+            <div class="timeline-date">{job.date}</div>
+            <h3 class="timeline-title">
+              {job.role}
+              <span class="timeline-company"> - {job.company}</span>
+            </h3>
+            <ul class="timeline-points">
+              {job.points.map((point) => (
+                <li>- {point}</li>
+              ))}
+            </ul>
+          </div>
+        </li>
+      ))
+    }
+  </ol>
+</section>
+
+<style>
+  .timeline-section {
+    width: 80%;
+    margin: 0 auto;
+    padding-bottom: 8rem; /* pb-32 */
+  }
+
+  @media (min-width: 768px) {
+    .timeline-section {
+      width: 91%; /* md:w-11/12 */
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .timeline-section {
+      width: 80%;
+    }
+  }
+
+  .section-title {
+    font-family: "Golos Text", "Roboto", cursive;
+    font-weight: bold;
+    font-size: 32px;
+    color: white;
+    text-align: center;
+  }
+
+  .timeline {
+    max-width: 1000px;
+    margin: 3rem auto 0;
+    padding: 0;
+    list-style: none;
+    position: relative;
+  }
+
+  .timeline::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 18px;
+    width: 2px;
+    background: #e4e4e9;
+  }
+
+  .timeline-item {
+    position: relative;
+    margin-bottom: 4rem;
+    padding-left: 70px; /* space for the icon */
+  }
+
+  .timeline-icon {
+    position: absolute;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    border: 3px solid #00ff7c;
+    overflow: hidden;
+  }
+
+  .icon-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    box-sizing: border-box;
+    -webkit-clip-path: circle();
+    clip-path: circle();
+  }
+
+  .timeline-content {
+    position: relative;
+    background: #fff;
+    border-radius: 0.625em;
+    box-shadow: 0 3px 0 #d7d7dc;
+    padding: 1.25rem 1.25rem 0.625rem;
+    font-family: "Golos Text", "Roboto", cursive;
+    color: #0f2444;
+  }
+
+  .timeline-date {
+    position: absolute;
+    top: -1.6rem;
+    left: 70px;
+    font-family: "Golos Text", "Roboto", cursive;
+    font-weight: bold;
+    color: white;
+  }
+
+  .timeline-title {
+    margin: 0;
+    font-size: 1.125rem;
+    font-weight: bold;
+  }
+
+  .timeline-company {
+    font-weight: normal;
+    color: #6b7280; /* text-gray-500 */
+  }
+
+  .timeline-points {
+    margin: 0.75rem 0 0;
+    padding-left: 0.75rem;
+    font-size: 0.9375rem;
+  }
+
+  .timeline-points li {
+    margin-bottom: 0.5rem;
+  }
+
+  .timeline-points li:last-child {
+    margin-bottom: 0;
+  }
+
+  @media (min-width: 768px) {
+    .timeline::before {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .timeline-item {
+      width: 50%;
+      padding-left: 0;
+      margin-bottom: 3rem;
+    }
+
+    .timeline-item:nth-child(odd) {
+      margin-right: auto;
+      padding-right: 2.5rem;
+      text-align: left;
+    }
+
+    .timeline-item:nth-child(odd) .timeline-points {
+      display: inline-block;
+      text-align: left;
+    }
+
+    .timeline-item:nth-child(even) {
+      margin-left: auto;
+      padding-left: 2.5rem;
+    }
+
+    .timeline-item .timeline-icon {
+      top: 0.5rem;
+    }
+
+    .timeline-item:nth-child(odd) .timeline-icon {
+      transform: translateX(50%);
+      right: 0;
+    }
+
+    .timeline-item:nth-child(even) .timeline-icon {
+      transform: translateX(-50%);
+      left: 0;
+    }
+
+    .timeline-item:nth-child(odd) .timeline-date {
+      left: calc(100% + 5.5rem);
+      right: auto;
+      top: 0.8rem;
+      text-align: left;
+    }
+
+    .timeline-item:nth-child(even) .timeline-date {
+      right: calc(100% + 5.5rem);
+      left: auto;
+      top: 0.8rem;
+      text-align: right;
+    }
+  }
+</style>
