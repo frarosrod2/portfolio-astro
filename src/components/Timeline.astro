@@ -91,13 +91,7 @@ const jobs = [
   .timeline-section {
     width: 80%;
     margin: 0 auto;
-    padding-bottom: 8rem; /* pb-32 */
-  }
-
-  @media (min-width: 768px) {
-    .timeline-section {
-      width: 91%; /* md:w-11/12 */
-    }
+    padding-bottom: 4rem;
   }
 
   @media (min-width: 1024px) {
@@ -205,6 +199,10 @@ const jobs = [
   }
 
   @media (min-width: 768px) {
+    .timeline-section {
+      width: 91%; /* md:w-11/12 */
+    }
+
     .timeline::before {
       left: 50%;
       transform: translateX(-50%);
@@ -258,6 +256,17 @@ const jobs = [
       left: auto;
       top: 0.8rem;
       text-align: right;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .timeline-icon {
+      transform: translateX(-8px);
+      left: 0;
+    }
+
+    .timeline-date {
+      left: unset;
     }
   }
 </style>
