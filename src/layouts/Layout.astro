@@ -3,6 +3,7 @@ import Navbar from "../components/Navbar.astro";
 import "../styles/global.css";
 import golos400Url from "../assets/fonts/golos-text-400.woff2";
 import golos700Url from "../assets/fonts/golos-text-700.woff2";
+import belanosima400Url from "../assets/fonts/belanosima-400.woff2";
 
 const {
 	title = "Francisco Javier Rosa | Full Stack Developer",
@@ -45,6 +46,7 @@ const jsonLd = {
 		<link rel="icon" href="/favicon.ico" />
 		<link rel="preload" as="font" type="font/woff2" crossorigin href={golos400Url} />
 		<link rel="preload" as="font" type="font/woff2" crossorigin href={golos700Url} />
+		<link rel="preload" as="font" type="font/woff2" crossorigin href={belanosima400Url} />
 		<title>{title}</title>
 		<meta name="description" content={description} />
 		<meta name="author" content="Francisco Javier Rosa" />
